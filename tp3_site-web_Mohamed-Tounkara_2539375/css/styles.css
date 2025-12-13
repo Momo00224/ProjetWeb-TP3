@@ -1,0 +1,464 @@
+
+:root {
+  --color-background: #0e0c1f;      /* Couleur de fond générale, très foncée */
+  --color-primary:    #1f213a;      /* Couleur des cartes et conteneurs */
+  --color-accent:     #3b7666;      /* Couleur d'accentuation (vert/bleu) */
+  --color-highlight:  #65b893;      /* Couleur utilisée pour la sélection */
+  --color-border:     rgba(255,255,255,0.2); /* Bordures subtiles */
+  --text-color:       #ffffff;      /* Couleur principale du texte */
+  --text-muted:       #b0b0c5;      /* Couleur de texte secondaire */
+  --border-radius:    12px;         /* Rayon standard des coins arrondis */
+  --spacing:          1rem;         /* Unité d'espacement de base */
+  --transition-fast:  0.3s;         /* Durée des transitions */
+}
+
+/* Réinitialisation de base et typographie par défaut. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-color);
+  background-image: url('../images/star-bg.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-highlight);
+}
+
+/* Navigation principale */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: rgba(15, 13, 32, 0.8);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar li a {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-fast);
+}
+
+.navbar li a:hover,
+.navbar li a.active {
+  background: var(--color-accent);
+}
+
+/* Section héroïque de la page d'accueil */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* Bouton d’appel à l’action sur la page d’accueil */
+.cta-home {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: background var(--transition-fast);
+}
+
+.cta-home:hover {
+  background: var(--color-highlight);
+}
+
+/* Section de prévisualisation (slider) */
+.preview {
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.preview h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.8);
+}
+
+.slides {
+  display: flex;
+  transition: transform var(--transition-fast) ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-fast);
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+/* Section vidéo */
+.video-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.video-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-section p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.8);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Pied de page */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(15, 13, 32, 0.8);
+  backdrop-filter: blur(6px);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Page de recherche (recherche.html) */
+.search-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: rgba(15, 13, 32, 0.8);
+  overflow: hidden;
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.search-bar input[type="text"]:focus {
+  outline: none;
+  background: rgba(255,255,255,0.05);
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-results li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  background: rgba(15, 13, 32, 0.8);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.search-results li.selected {
+  background: var(--color-accent);
+}
+
+.search-results img {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.75rem;
+  border-radius: 50%;
+}
+
+.search-results span {
+  font-size: 1rem;
+}
+
+.game-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(15, 13, 32, 0.8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+}
+
+.game-info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.game-info p {
+  margin-bottom: 0.25rem;
+  color: var(--text-muted);
+}
+
+.game-info .cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.game-info .cta-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-accent);
+  transition: background var(--transition-fast), border var(--transition-fast);
+}
+
+.game-info .cta-buttons a:hover {
+  background: var(--color-accent);
+}
+
+/* Page À propos (about.html) */
+.about-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.about-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-container .intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.team-member {
+  background: rgba(15, 13, 32, 0.8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+}
+
+.team-member img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+}
+
+.team-member h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.team-member p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Page d'inscription (inscription.html) */
+.inscription-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  background: rgba(15, 13, 32, 0.8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+}
+
+.inscription-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.inscription-container form label {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.inscription-container form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: rgba(15, 13, 32, 0.8);
+  color: var(--text-color);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.inscription-container form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: rgba(255,255,255,0.05);
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 3rem;
+}
+
+.password-wrapper button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.inscription-container button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.inscription-container button[type="submit"]:hover {
+  background: var(--color-highlight);
+}
+
+#form-error {
+  color: #ff7878;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+#form-success {
+  color: #65b893;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    background: rgba(15, 13, 32, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    display: none;
+  }
+  .navbar ul.show {
+    display: flex;
+  }
+
+}
